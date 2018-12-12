@@ -8,7 +8,6 @@ class Brand extends React.Component {
     const Brand = styled.section`
       display: block;
       font-family: 'Fira Sans', sans-serif;
-      padding: 2rem 2rem 14.5rem 2rem;
       width: 100%;
     `;
 

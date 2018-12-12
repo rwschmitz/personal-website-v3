@@ -8,9 +8,9 @@ class Body extends React.Component {
   render() {
 
     const Body = styled.section`
-      background: linear-gradient(119.36deg, #5449D2 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(240.64deg, #5449D2 0%, rgba(255, 255, 255, 0) 100%), #5449D2;
-      flex-wrap: wrap;
+      background-image: linear-gradient(to right, rgba(84, 73, 210, 1) 5%, rgba(255, 255, 255, 0.1) 100%), linear-gradient(to left, rgba(84, 73, 210, 1) 5%, rgba(255, 255, 255, 0.1) 100%);
       height: 100vh;
+      max-height: 100%;
     `;
 
     return (
