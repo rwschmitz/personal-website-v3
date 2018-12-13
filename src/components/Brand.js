@@ -5,13 +5,13 @@ import styled from 'styled-components';
 class Brand extends React.Component {
   render() {
 
-    const Brand = styled.section`
+    const BrandStyle = styled.section`
       display: block;
       font-family: 'Fira Sans', sans-serif;
       width: 100%;
     `;
 
-    const Headline = styled.h1`
+    const HeadlineStyle = styled.h1`
       font-size: 32px;
       font-weight: 800;
       line-height: 56px;
@@ -19,7 +19,7 @@ class Brand extends React.Component {
       padding: 0;
     `
 
-    const Subheadline = styled.h2`
+    const SubheadlineStyle = styled.h2`
       font-size: 16px;
       font-weight: 300;
       line-height: 27px;
@@ -28,10 +28,10 @@ class Brand extends React.Component {
     `
 
     return (
-      <Brand>
-        <Headline>Rudolph Schmitz</Headline>
-        <Subheadline>Web Developer</Subheadline>
-      </Brand>
+      <BrandStyle>
+        <HeadlineStyle>Rudolph Schmitz</HeadlineStyle>
+        <SubheadlineStyle>Web Developer</SubheadlineStyle>
+      </BrandStyle>
     );
   }
 }

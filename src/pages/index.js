@@ -1,14 +1,14 @@
 import React from 'react';
-import Body from '../components/Body';
+import PageLayout from '../components/PageLayout';
+import HomepageContent from '../components/HomepageContent';
 import '../css/base.css';
-
 
 class IndexPage extends React.Component {
   render() {
     return (
-      <Body>
-        { this.props.children }
-      </Body>
+      <PageLayout>
+        <HomepageContent />
+      </PageLayout>
     );
   }
 }

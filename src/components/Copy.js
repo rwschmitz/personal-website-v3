@@ -5,7 +5,7 @@ import styled from 'styled-components';
 class Copy extends React.Component {
   render() {
 
-    const Title = styled.h2`
+    const TitleStyle = styled.h2`
       color: #fff;
       font-size: 18px;
       font-weight: 500;
@@ -14,7 +14,7 @@ class Copy extends React.Component {
       max-width: 640px;
       width: 100%;
     `;
-    const Copy = styled.p`
+    const CopyStyle = styled.p`
       color: #fff;
       font-size: 18px;
       font-weight: 500;
@@ -25,16 +25,15 @@ class Copy extends React.Component {
     `;
 
     const { copy, title } = this.props;
-    const parsedCopy = JSON.parse(copy);
 
     return (
       <React.Fragment>
-        <Title>
+        <TitleStyle>
           { title }
-        </Title>
-        <Copy>
-          { parsedCopy.content[0].content[0].value }
-        </Copy>
+        </TitleStyle>
+        <CopyStyle>
+          { copy }
+        </CopyStyle>
       </React.Fragment>
     );
   }
