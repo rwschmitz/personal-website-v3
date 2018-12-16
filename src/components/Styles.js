@@ -14,14 +14,20 @@ grid-template-areas:
   "content content"
   "social social";
 grid-template-columns: 4fr 1fr;
-height: 100%;
+height: auto;
 margin: 0 auto;
 max-width: 1600px;
 @media (min-width: 800px) {
+  grid-template-areas:
+    "brand brand"
+    "content nav"
+    "social social";
   padding: ${90/16}rem ${160/16}rem;
 }
 `;
-
+export const ContainerStyle = styled.div`
+  display: block;
+`
 export const H1Style = styled.h1`
 font-size: 32px;
 font-weight: 800;
