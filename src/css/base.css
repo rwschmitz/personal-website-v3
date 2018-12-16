@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,800|Montserrat:300,400,500');
+
 html, body {
   box-sizing: border-box;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fira Sans', sans-serif;
 }

@@ -1,14 +1,16 @@
 import React from 'react';
-import PageLayout from '../components/PageLayout';
+import { WrapperStyle, GridContainerStyle } from '../components/Styles';
 import HomepageContent from '../components/HomepageContent';
 import '../css/base.css';
 
 class IndexPage extends React.Component {
   render() {
     return (
-      <PageLayout>
-        <HomepageContent />
-      </PageLayout>
+      <WrapperStyle>
+        <GridContainerStyle>
+          <HomepageContent />
+        </GridContainerStyle>
+      </WrapperStyle>
     );
   }
 }
