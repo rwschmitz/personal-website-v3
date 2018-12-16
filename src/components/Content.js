@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { H2Style, PStyle } from './Styles';
 
 class Content extends React.Component {
@@ -14,3 +15,8 @@ class Content extends React.Component {
 }
 
 export default Content;
+
+Content.propTypes = {
+  title: PropTypes.string.isRequired,
+  copy: PropTypes.copy.isRequired
+}
