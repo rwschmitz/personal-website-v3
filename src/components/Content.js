@@ -1,12 +1,12 @@
 import React from 'react';
-import { H1Style, PStyle } from './Styles';
+import { H2Style, PStyle } from './Styles';
 
 class Content extends React.Component {
   render() {
     const { title, copy } = this.props;
     return (
       <React.Fragment>
-        <H1Style>{ title }</H1Style>
+        <H2Style>{ title }</H2Style>
         <PStyle>{ copy }</PStyle>
       </React.Fragment>
     );
