@@ -12,6 +12,7 @@ The purpose of this website is to have a place for:
 
 - Gatsby.js
 - React.js
+- GraphQL
 - Styled Components
 - Contentful API
 
@@ -39,7 +40,6 @@ The purpose of this website is to have a place for:
 - Store access tokens within these .env files.
 - `npm install --save gatsby-source-contentful`.
 - Configure plugin in `gatsbyjs.config.js`.  [Docs](https://www.gatsbyjs.org/packages/gatsby-source-contentful/)
-
 
 #### Code Philosophy
 
