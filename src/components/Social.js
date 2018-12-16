@@ -1,16 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import { SocialStyle } from './Styles';
+import Twitter from '../images/twitter.svg';
+import LinkedIn from '../images/linkedin.svg';
+import Github from '../images/github.svg';
 
 class Social extends React.Component {
   render() {
-
-    const SocialStyle = styled.div`
-      grid-area: social;
-    `;
-
     return (
       <SocialStyle>
-        <p>social</p>
+        <li><img src={ Twitter } alt="Follow me on Twitter!" /></li>
+        <li><img src={ LinkedIn } alt="Connect with me on LinkedIn!" /></li>
+        <li><img src={ Github } alt="Follow me on Github!" /></li>
       </SocialStyle>
     );
   }

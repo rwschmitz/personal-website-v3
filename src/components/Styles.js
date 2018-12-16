@@ -13,7 +13,8 @@ grid-template-areas:
   "brand nav"
   "content content"
   "social social";
-grid-template-columns: 8fr 2fr;
+grid-template-columns: 4fr 1fr;
+height: 100%;
 margin: 0 auto;
 max-width: 1600px;
 @media (min-width: 800px) {
@@ -54,4 +55,23 @@ width: 100%;
 
 export const NavStyle = styled.div`
 grid-area: nav;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+`;
+
+export const SocialStyle = styled.ul`
+align-items: center;
+display: flex;
+flex-direction: column;
+grid-area: social;
+justify-content: space-between;
+list-style-type: none;
+padding: 0;
+margin: 0;
+  li {
+    margin-bottom: 1rem;
+  }
 `;

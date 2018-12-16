@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrandStyle, H1Style, H2Style } from './Styles';
 import { StaticQuery, graphql } from 'gatsby';
+import { BrandStyle, H1Style, H2Style } from './Styles';
 
 class Brand extends React.Component {
   render() {

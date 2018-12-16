@@ -41,6 +41,12 @@ The purpose of this website is to have a place for:
 - `npm install --save gatsby-source-contentful`.
 - Configure plugin in `gatsbyjs.config.js`.  [Docs](https://www.gatsbyjs.org/packages/gatsby-source-contentful/)
 
+## Notes
+
+### Gatsbyjs
+
+- To run GraphQL queries in non-page components you’ll need to use [Gatsby’s Static Query feature](https://www.gatsbyjs.org/docs/static-query/).
+
 #### Code Philosophy
 
 - Start with large pages and break down redundant bits of code into re-usable components

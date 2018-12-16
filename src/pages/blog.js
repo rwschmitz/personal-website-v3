@@ -26,10 +26,10 @@ class Blog extends React.Component {
               }`
             }
             render={ data => (
-            <BlogContent
-              blogTitle={ data.contentfulBlogPost.blogPostTitle }
-              blogCopy={ data.contentfulBlogPost.blogPostCopy.blogPostCopy }
-            />
+              <BlogContent
+                blogTitle={ data.contentfulBlogPost.blogPostTitle }
+                blogCopy={ data.contentfulBlogPost.blogPostCopy.blogPostCopy }
+              />
             )}
           />
           <Social />

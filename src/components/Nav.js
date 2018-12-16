@@ -1,16 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Link, StaticQuery, graphql } from 'gatsby';
+import { NavStyle } from './Styles';
 
 class Nav extends React.Component {
   render() {
-
-    const NavStyle = styled.div`
-      grid-area: nav;
-    `;
-
     return (
       <NavStyle>
-        <p>nav</p>
+        <StaticQuery
+          query={ graphql`
+            query {
+              allContentfulNavLink {
+                edges {
+                  node {
+                    navLink
+                  }
+                }
+              }
+            }`
+          }
+          render={ data => (
+            <ul>
+              { data.allContentfulNavLink.edges.map(edge => (
+                <li key={ edge.node.navLink }>
+                  <Link activeStyle={{ opacity: 1 }} to={`/${edge.node.navLink.toLowerCase()}/`}>{ edge.node.navLink }</Link>
+                </li>))
+              }
+            </ul>
+          )
+          }
+        />
       </NavStyle>
     );
   }

@@ -16,7 +16,11 @@ class Content extends React.Component {
 
 export default Content;
 
+Content.defaultProps = {
+  title: ''
+}
+
 Content.propTypes = {
-  title: PropTypes.string.isRequired,
-  copy: PropTypes.copy.isRequired
+  title: PropTypes.string,
+  copy: PropTypes.string.isRequired
 }

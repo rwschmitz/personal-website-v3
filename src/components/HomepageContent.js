@@ -11,7 +11,9 @@ class HomepageContent extends React.Component {
       <React.Fragment>
         <Brand />
         <Nav />
-        <Content />
+        <Content
+          copy="This is the homepage"
+        />
         <Social />
       </React.Fragment>
     );
