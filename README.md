@@ -47,6 +47,11 @@ The purpose of this website is to have a place for:
 
 - To run GraphQL queries in non-page components you’ll need to use [Gatsby’s Static Query feature](https://www.gatsbyjs.org/docs/static-query/).
 
+### Styled Components / Contentful / Netlify Gotchas
+
+- Pulling a Contentful rich text content type into a `styled.p` component will cause nested `<p>` tags.  When the site is deployed, this will cause any nested `<p>` tags to be removed from the DOM due to invalid markup.
+  - Instead, you may use a HTML element such as a `<div>`.
+
 #### Code Philosophy
 
 - Start with large pages and break down redundant bits of code into re-usable components
