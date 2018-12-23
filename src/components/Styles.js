@@ -29,36 +29,40 @@ export const SkipToContent = styled.a`
   }
 `;
 
-export const WrapperStyle = styled.div`
-background-image: linear-gradient(to right, rgba(84, 73, 210, 1) 5%, rgba(255, 255, 255, 0.1) 100%), linear-gradient(to left, rgba(84, 73, 210, 1) 5%, rgba(255, 255, 255, 0.1) 100%);
-height: 100%;
-max-height: 100%;
-`;
-
 export const GridContainerStyle = styled.div`
 display: grid;
-grid-gap: 1rem;
+column-gap: 4rem;
 grid-template-areas:
   "brand burger"
   "content content"
   "social social";
-grid-template-columns: auto 1fr;
+grid-template-columns: 8fr minmax(auto, 1fr);
 height: auto;
 margin: 0 auto;
 max-width: 1600px;
+row-gap: 1rem;
 padding: 1rem;
 @media (min-width: 800px) {
   grid-template-areas:
     "brand brand"
     "content nav"
     "social social";
+    grid-template-columns: 4fr minmax(auto, 1fr);
   padding: ${90/16}rem ${160/16}rem;
+}
+@media (min-width: 1280px) {
+  column-gap: 1rem;
+  grid-template-columns: 8fr minmax(auto, 1fr);
 }
 `;
 
 export const ContainerStyle = styled.main`
   display: block;
+  grid-column: 1 / -1;
   padding-bottom: 2rem;
+  @media (min-width: 800px) {
+    grid-column: auto;
+  }
 `
 export const H1Style = styled.h1`
 font-size: 24px;
@@ -83,9 +87,14 @@ export const PStyle = styled.div`
 font-size: 18px;
 font-weight: 500;
 grid-area: content;
+line-height: 2;
 margin: 0 auto;
 max-width: 640px;
 width: 100%;
+ p {
+   margin: 0;
+   padding: 2rem 0;
+ }
 `;
 
 export const BrandStyle = styled.section`
@@ -97,11 +106,54 @@ width: 100%;
 export const NavStyle = styled.div`
 display: none;
 @media (min-width: 800px) {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
   grid-area: nav;
   ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    width: 100%;
+    li {
+      padding-bottom: ${30/16}rem;
+      position: relative;
+      a {
+        transition: all 300ms ease;
+      }
+      &:hover {
+        a {
+          opacity: 1;
+        }
+        &:after {
+          background-color: #5449d2;
+          border: 1px solid transparent;
+          opacity: 1;
+        }
+      }
+      &:after {
+        background-color: transparent;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        content: '';
+        height: 13px;
+        opacity: 0.33;
+        position: absolute;
+        right: -30px;
+        top: 4px;
+        transition: all 300ms ease;
+        width: 13px;
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  ul {
+    li {
+      &:after {
+        right: 0;
+      }
+    }
   }
 }
 `;
@@ -120,6 +172,9 @@ max-height: 20px;
 max-width: 30px;
 padding: 0;
 width: 30px;
+@media (min-width: 800px) {
+  display: none;
+}
 `;
 
 export const BurgerLineStyle = styled.span`
@@ -143,6 +198,7 @@ justify-content: space-between;
 list-style-type: none;
 padding: 0;
 margin: 0;
+width: 100%;
   li {
     margin-bottom: 1rem;
     &:last-child {
@@ -156,6 +212,14 @@ margin: 0;
         color: #fff;
         opacity: 1;
       }
+    }
+  }
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    li {
+      margin-bottom: 0;
+      margin-right: 2rem;
     }
   }
 `;

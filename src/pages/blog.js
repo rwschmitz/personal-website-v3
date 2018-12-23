@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { WrapperStyle, GridContainerStyle } from '../components/Styles';
+import { GridContainerStyle } from '../components/Styles';
 import Brand from '../components/Brand';
 import Nav from '../components/Nav';
 import Social from '../components/Social';
@@ -10,7 +10,7 @@ import '../css/base.css';
 class Blog extends React.Component {
   render() {
     return (
-      <WrapperStyle>
+      <div>
         <GridContainerStyle>
           <Brand />
           <Nav />
@@ -34,7 +34,7 @@ class Blog extends React.Component {
           />
           <Social />
         </GridContainerStyle>
-      </WrapperStyle>
+      </div>
     );
   }
 }

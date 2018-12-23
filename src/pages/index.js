@@ -1,17 +1,17 @@
 import React from 'react';
-import { SkipToContent, WrapperStyle, GridContainerStyle } from '../components/Styles';
+import { SkipToContent, GridContainerStyle } from '../components/Styles';
 import HomepageContent from '../components/HomepageContent';
 import '../css/base.css';
 
 class IndexPage extends React.Component {
   render() {
     return (
-      <WrapperStyle>
+      <div>
         <SkipToContent href="#maincontent" tabIndex="0">Skip to content</SkipToContent>
         <GridContainerStyle>
           <HomepageContent />
         </GridContainerStyle>
-      </WrapperStyle>
+      </div>
     );
   }
 }
