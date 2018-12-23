@@ -87,13 +87,16 @@ export const PStyle = styled.div`
 font-size: 18px;
 font-weight: 500;
 grid-area: content;
-line-height: 2;
+line-height: 1.75;
 margin: 0 auto;
 max-width: 640px;
 width: 100%;
  p {
    margin: 0;
    padding: 2rem 0;
+ }
+ @media (min-width: 1280px) {
+   font-size: 20px;
  }
 `;
 
