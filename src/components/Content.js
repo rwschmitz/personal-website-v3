@@ -8,7 +8,7 @@ class Content extends React.Component {
     return (
       <ContainerStyle id="maincontent">
         <H2Style>{ title }</H2Style>
-        <PStyle dangerouslySetInnerHTML={{ __html: copy }} />
+        <PStyle dangerouslySetInnerHTML={{ __html: copy }}></PStyle>
       </ContainerStyle>
     );
   }
