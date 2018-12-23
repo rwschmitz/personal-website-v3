@@ -79,7 +79,7 @@ padding: 0;
 width: auto;
 `
 
-export const PStyle = styled.p`
+export const PStyle = styled.div`
 font-size: 18px;
 font-weight: 500;
 grid-area: content;
