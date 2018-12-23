@@ -22,7 +22,7 @@ class Nav extends React.Component {
             <ul>
               { data.allContentfulNavLink.edges.map(edge => (
                 <li key={ edge.node.navLink }>
-                  <Link activeStyle={{ opacity: 1 }} to={`/${edge.node.navLink.toLowerCase()}/`}>{ edge.node.navLink }</Link>
+                  <Link key={ edge.node.navLink } activeStyle={{ opacity: 1 }} to={`/${edge.node.navLink.toLowerCase()}/`}>{ edge.node.navLink }</Link>
                 </li>))
               }
             </ul>

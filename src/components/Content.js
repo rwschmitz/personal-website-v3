@@ -6,9 +6,9 @@ class Content extends React.Component {
   render() {
     const { title, copy } = this.props;
     return (
-      <ContainerStyle>
+      <ContainerStyle id="maincontent">
         <H2Style>{ title }</H2Style>
-        <PStyle>{ copy }</PStyle>
+        <PStyle dangerouslySetInnerHTML={{ __html: copy }} />
       </ContainerStyle>
     );
   }

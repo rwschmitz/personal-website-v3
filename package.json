@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "author": "Rudolph Schmitz <rudolph.w.schmitz@gmail.com>",
   "dependencies": {
-    "@contentful/gatsby-transformer-contentful-richtext": "^12.1.0",
+    "@contentful/gatsby-transformer-contentful-richtext": "^12.1.2",
     "babel-plugin-styled-components": "^1.9.4",
     "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -19,7 +19,7 @@
     "gatsby-plugin-react-helmet": "^3.0.4",
     "gatsby-plugin-sharp": "^2.0.15",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-source-contentful": "^2.0.20",
+    "gatsby-source-contentful": "^2.0.21",
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-sharp": "^2.1.9",
     "prop-types": "^15.6.2",
