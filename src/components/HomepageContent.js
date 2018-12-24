@@ -1,7 +1,5 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Brand from './Brand';
 import Nav from './Nav';
 import Burger from './Burger';
@@ -10,54 +8,48 @@ import Social from './Social';
 import '../css/page.css';
 
 class HomepageContent extends React.Component {
+  state = {
+    isBrandAtTheTop: false
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.setBrandState);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.setBrandState);
+  }
+
+  getBrandPosition = () => {
+    if(this.brandStyleRef.current !== null) {
+      return this.brandStyleRef.current.getBoundingClientRect().top;
+    }
+    return null;
+  }
+
+  setBrandState = () => {
+    const { isBrandAtTheTop } = this.state;
+    if(this.getBrandPosition() <= 0) {
+      this.setState({
+        isBrandAtTheTop: true
+      })
+    }
+
+    if(isBrandAtTheTop === true && window.pageYOffset === 0) {
+      this.setState({
+        isBrandAtTheTop: false
+      });
+    }
+  }
+
   render() {
-    const document = {
-      nodeType: 'document',
-      data: {},
-      content: [
-        {
-          nodeType: 'paragraph',
-          content: [
-            {
-              nodeType: 'text',
-              marks: [],
-              value: 'I am an odd paragraph.',
-              data: {}
-            }
-          ],
-          data: {}
-        },
-        {
-          nodeType: 'paragraph',
-          content: [
-            {
-              nodeType: 'text',
-              marks: [],
-              value: 'I am even.',
-              data: {}
-            }
-          ],
-          data: {}
-        }
-      ]
-    };
-
-    const options = {
-      renderNode: {
-        [BLOCKS.PARAGRAPH]: node => `
-          <p class='${node}'>
-            ${node}
-          </p>`
-      }
-    };
-
-    documentToHtmlString(document, options)
-
+    this.brandStyleRef = React.createRef();
+    const { isBrandAtTheTop } = this.state;
     return (
       <React.Fragment>
-        <Brand />
-        <Burger />
-        <Nav />
+        <Brand isBrandAtTheTop={ isBrandAtTheTop } brandStyleRef={ this.brandStyleRef } />
+        <Burger isBrandAtTheTop={ isBrandAtTheTop } />
+        <Nav isBrandAtTheTop={ isBrandAtTheTop } />
         <StaticQuery
           query={ graphql`
             {

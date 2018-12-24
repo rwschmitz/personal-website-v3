@@ -1,11 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import { NavStyle } from './Styles';
 
 class Nav extends React.Component {
   render() {
+
+    const { isBrandAtTheTop } = this.props;
+
+    const navActiveStyles = {
+      animation: 'translateY(-35%) rotate(90deg)',
+      childrenDisplay: 'none',
+      childrenMarginTop: '2rem',
+      childrenRotate: 'rotate(-90deg)',
+      childrenTextAlign: 'center',
+      position: 'fixed',
+      right: '25%',
+      top: 0,
+      zIndex: '3'
+    }
+
+    const navRestingStyles = {
+      position: 'relative'
+    }
+
     return (
-      <NavStyle>
+      <NavStyle navTopStyles={ isBrandAtTheTop === false ? navRestingStyles : navActiveStyles }>
         <StaticQuery
           query={ graphql`
             query {
@@ -35,3 +55,11 @@ class Nav extends React.Component {
 }
 
 export default Nav;
+
+Nav.defaultProps = {
+  isBrandAtTheTop: false
+}
+
+Nav.propTypes = {
+  isBrandAtTheTop: PropTypes.bool
+}
