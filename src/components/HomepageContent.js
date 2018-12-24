@@ -20,6 +20,12 @@ class HomepageContent extends React.Component {
     window.removeEventListener('scroll', this.setBrandState);
   }
 
+  /**
+   * Look for brand container and watch for it to reach the top of the browser window
+   * 
+   * @function getBrandPosition
+   * @return {Number}
+   */
   getBrandPosition = () => {
     if(this.brandStyleRef.current !== null) {
       return this.brandStyleRef.current.getBoundingClientRect().top;
@@ -27,6 +33,12 @@ class HomepageContent extends React.Component {
     return null;
   }
 
+  /**
+   * Check position of brand container and change state based on current location
+   * Calls @getBrandPosition
+   * 
+   * @function setBrandState
+   */
   setBrandState = () => {
     const { isBrandAtTheTop } = this.state;
     if(this.getBrandPosition() <= 0) {

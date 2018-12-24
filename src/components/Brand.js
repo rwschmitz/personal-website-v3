@@ -23,7 +23,6 @@ class Brand extends React.Component {
     const brandRestingStyles = {
       position: 'relative'
     }
-
     return (
       <StaticQuery
         query={ graphql`

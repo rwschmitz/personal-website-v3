@@ -5,7 +5,6 @@ import { NavStyle } from './Styles';
 
 class Nav extends React.Component {
   render() {
-
     const { isBrandAtTheTop } = this.props;
 
     const navActiveStyles = {
@@ -23,7 +22,6 @@ class Nav extends React.Component {
     const navRestingStyles = {
       position: 'relative'
     }
-
     return (
       <NavStyle navTopStyles={ isBrandAtTheTop === false ? navRestingStyles : navActiveStyles }>
         <StaticQuery

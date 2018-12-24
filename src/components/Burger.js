@@ -4,16 +4,14 @@ import { BurgerContainerStyle, BurgerLineStyle } from './Styles';
 
 class Burger extends React.Component {
   render() {
-
     const { isBrandAtTheTop } = this.props;
-
+    
     const burgerActiveStyles = {
       position: 'fixed',
       right: '1.65rem',
       top: '1.65rem',
       zIndex: '3'
     }
-
     const burgerRestingStyles = {
       position: 'relative'
     }
