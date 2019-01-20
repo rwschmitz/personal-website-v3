@@ -100,22 +100,10 @@ width: 100%;
 `;
 
 export const BrandStyle = styled.section`
-background: ${props => props.brandTopStyles.background};
-border-bottom-left-radius: ${props => props.brandTopStyles.borderBottomLeftRadius};
-border-bottom-right-radius: ${props => props.brandTopStyles.borderBottomRightRadius};
-box-shadow: ${props => props.brandTopStyles.boxShadow};
 grid-area: brand;
-left: ${props => props.brandTopStyles.left || 0};
 max-width: 1600px;
 padding-bottom: 1rem;
-padding-left: ${props => props.brandTopStyles.paddingLeft};
-padding-top: ${props => props.brandTopStyles.paddingTop || '1rem'};
-position: ${props => props.brandTopStyles.position};
-top: ${props => props.brandTopStyles.top};
-transform: ${props => props.brandTopStyles.translateX};
-transition: background-color 500ms ease, box-shadow 500ms ease;
 width: 100%;
-z-index: 2;
 `;
 
 export const NavStyle = styled.div`
@@ -127,12 +115,6 @@ display: none;
   justify-content: flex-end;
   grid-area: nav;
   padding: 2rem 0;
-  position: ${props => props.navTopStyles.position};
-  right: ${props => props.navTopStyles.right || 0};
-  top: ${props => props.navTopStyles.top};
-  transform: ${props => props.navTopStyles.animation};
-  transition: transform 500ms ease;
-  z-index: ${props => props.navTopStyles.zIndex};
   ul {
     list-style-type: none;
     padding: 0;
@@ -141,9 +123,6 @@ display: none;
     li {
       padding-bottom: ${30/16}rem;
       position: relative;
-      margin-top: ${props => props.navTopStyles.childrenMarginTop};
-      text-align: ${props => props.navTopStyles.childrenTextAlign};
-      transform: ${props => props.navTopStyles.childrenRotate};
       a {
         transition: all 300ms ease;
       }
@@ -162,7 +141,6 @@ display: none;
         border: 1px solid #fff;
         border-radius: 50%;
         content: '';
-        display: ${props => props.navTopStyles.childrenDisplay};
         height: 13px;
         opacity: 0.33;
         position: absolute;
@@ -198,12 +176,8 @@ margin: 0.45rem auto 0 auto;
 max-height: 20px;
 max-width: 30px;
 padding: 0;
-position: ${props => props.burgerTopStyles.position};
-right: ${props => props.burgerTopStyles.right};
-top: ${props => props.burgerTopStyles.top || '1.65rem'};
 transition: all 500ms ease;
 width: 30px;
-z-index: ${props => props.burgerTopStyles.zIndex};
 @media (min-width: 800px) {
   display: none;
 }
