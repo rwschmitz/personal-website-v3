@@ -40,7 +40,8 @@ height: auto;
 margin: 0 auto;
 max-width: 1600px;
 row-gap: 1rem;
-padding: 1rem;
+padding-top: 1rem;
+padding-bottom: 1rem;
 position: relative;
 @media (min-width: 1120px) {
   column-gap: 4rem;
@@ -61,6 +62,8 @@ export const ContainerStyle = styled.main`
   display: block;
   grid-column: 1 / -1;
   padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   position: relative;
   z-index: 1;
 @media (min-width: 1120px) {
@@ -102,7 +105,6 @@ width: 100%;
 
 export const BrandStyle = styled.section`
 background: ${props => props.brandTopStyles.background};
-border-bottom-left-radius: ${props => props.brandTopStyles.borderBottomRadii};
 grid-area: brand;
 left: ${props => props.brandTopStyles.left};
 max-width: 1600px;
@@ -116,6 +118,7 @@ transform: ${props => props.brandTopStyles.transform};
 width: 100%;
 z-index: ${props => props.brandTopStyles.zIndex};
 @media (min-width: 1120px) {
+  border-bottom-left-radius: ${props => props.brandTopStyles.borderBottomRadii};
   border-bottom-right-radius: ${props => props.brandTopStyles.borderBottomRadii};
 }
 `;
@@ -178,7 +181,6 @@ display: none;
 export const BurgerWrapperStyle = styled.div`
   background: ${props => props.brandTopStyles.background};
   padding-right: 1rem;
-  border-bottom-right-radius: 10px;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -249,9 +251,16 @@ width: 100%;
   @media (min-width: 640px) {
     flex-direction: row;
     justify-content: flex-start;
+    margin: 0 auto;
+    max-width: calc(640px - 1rem);
+    margin-left: 1rem;
     li {
       margin-bottom: 0;
       margin-right: 2rem;
     }
+  }
+  @media (min-width: 1120px) {
+    margin-left: 0;
+    max-width: none;
   }
 `;
