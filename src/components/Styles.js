@@ -31,18 +31,19 @@ export const SkipToContent = styled.a`
 
 export const GridContainerStyle = styled.div`
 display: grid;
-column-gap: 4rem;
 grid-template-areas:
-  "brand burger"
-  "content content"
-  "social social";
+"brand burger"
+"content content"
+"social social";
 grid-template-columns: 8fr minmax(auto, 1fr);
 height: auto;
 margin: 0 auto;
 max-width: 1600px;
 row-gap: 1rem;
 padding: 1rem;
-@media (min-width: 800px) {
+position: relative;
+@media (min-width: 1120px) {
+  column-gap: 4rem;
   grid-template-areas:
     "brand brand"
     "content nav"
@@ -62,9 +63,9 @@ export const ContainerStyle = styled.main`
   padding-bottom: 2rem;
   position: relative;
   z-index: 1;
-  @media (min-width: 800px) {
-    grid-column: auto;
-  }
+@media (min-width: 1120px) {
+  grid-column: auto;
+}
 `
 export const H1Style = styled.h1`
 font-size: 24px;
@@ -72,7 +73,7 @@ font-weight: 800;
 margin: 0;
 padding: 0 0 0.5rem 0;
 width: auto;
-@media (min-width: 800px) {
+@media (min-width: 1120px) {
   font-size: 32px;
 }
 `;
@@ -100,21 +101,38 @@ width: 100%;
 `;
 
 export const BrandStyle = styled.section`
+background: ${props => props.brandTopStyles.background};
+border-bottom-left-radius: ${props => props.brandTopStyles.borderBottomRadii};
 grid-area: brand;
+left: ${props => props.brandTopStyles.left};
 max-width: 1600px;
 padding-bottom: 1rem;
+padding-left: ${props => props.brandTopStyles.paddingLeft};
+padding-right: ${props => props.brandTopStyles.paddingRight};
+padding-top: ${props => props.brandTopStyles.paddingTop};
+position: ${props => props.brandTopStyles.position};
+top: ${props => props.brandTopStyles.top};
+transform: ${props => props.brandTopStyles.transform};
 width: 100%;
+z-index: ${props => props.brandTopStyles.zIndex};
+@media (min-width: 1120px) {
+  border-bottom-right-radius: ${props => props.brandTopStyles.borderBottomRadii};
+}
 `;
 
 export const NavStyle = styled.div`
 display: none;
 
-@media (min-width: 800px) {
+@media (min-width: 1120px) {
   align-items: flex-start;
   display: flex;
   justify-content: flex-end;
   grid-area: nav;
   padding: 2rem 0;
+  position: fixed;
+  right: calc(150px + 30px + 13px);
+  top: calc(106px - 1rem);
+  width: 150px;
   ul {
     list-style-type: none;
     padding: 0;
@@ -152,15 +170,21 @@ display: none;
     }
   }
 }
-@media (min-width: 1024px) {
-  ul {
-    li {
-      &:after {
-        right: 0;
-      }
-    }
-  }
+@media (min-width: 1600px) {
+  right: calc(((100% - 1600px)/2) + 180px + 1rem);
 }
+`;
+
+export const BurgerWrapperStyle = styled.div`
+  background: ${props => props.brandTopStyles.background};
+  padding-right: 1rem;
+  border-bottom-right-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  @media (min-width: 1120px) {
+    display: none;
+  }
 `;
 
 export const BurgerContainerStyle = styled.button`
@@ -172,13 +196,15 @@ display: flex;
 flex-wrap: wrap;
 grid-area: burger;
 height: 20px;
-margin: 0.45rem auto 0 auto;
+margin: 1.45rem auto 0 auto;
 max-height: 20px;
 max-width: 30px;
 padding: 0;
+position: sticky;
 transition: all 500ms ease;
+top: 1.45rem;
 width: 30px;
-@media (min-width: 800px) {
+@media (min-width: 1120px) {
   display: none;
 }
 `;

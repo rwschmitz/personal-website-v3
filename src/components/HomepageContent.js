@@ -8,11 +8,42 @@ import Social from './Social';
 import '../css/page.css';
 
 class HomepageContent extends React.Component {
+
+  state = {
+    isBrandAtTop: false
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.checkTop);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.checkTop);
+  }
+
+  checkTop = () => {
+    this.setState({
+      isBrandAtTop: false
+    });
+
+    if(this.brandRef.current.getBoundingClientRect().top <= 0) {
+      this.setState({
+        isBrandAtTop: true
+      });
+    }
+  }
+
+
   render() {
+
+    this.brandRef = React.createRef();
+
+    const { isBrandAtTop } = this.state;
+
     return (
       <React.Fragment>
-        <Brand />
-        <Burger />
+        <Brand isBrandAtTop={ isBrandAtTop } brandRef={ this.brandRef } />
+        <Burger isBrandAtTop={ isBrandAtTop } brandRef={ this.brandRef } />
         <Nav />
         <StaticQuery
           query={ graphql`
