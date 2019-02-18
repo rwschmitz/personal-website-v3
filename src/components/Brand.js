@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { BrandStyle, H1Style, H2Style } from './Styles';
 
@@ -10,11 +11,14 @@ class Brand extends React.Component {
     const active = {
       background: 'rgba(95, 75, 139, 1)',
       borderBottomRadii: '10px',
-      left: 'auto',
+      // left: 'auto',
+      left: 0,
+      maxWidth: 'none',
+      border: '1px solid red',
       paddingLeft: '2rem',
       paddingRight: '2rem',
       paddingTop: '1rem',
-      position: 'sticky',
+      position: 'fixed',
       top: 0,
       zIndex: 2
     }
@@ -47,3 +51,13 @@ class Brand extends React.Component {
 }
 
 export default Brand;
+
+Brand.defaultProps = {
+  isBrandAtTop: false,
+  brandRef: undefined
+}
+
+Brand.propTypes = {
+  isBrandAtTop: PropTypes.bool,
+  brandRef: PropTypes.shape()
+}

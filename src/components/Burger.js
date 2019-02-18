@@ -1,25 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BurgerWrapperStyle, BurgerContainerStyle, BurgerLineStyle } from './Styles';
 
 class Burger extends React.Component {
   render() {
 
-    const { isBrandAtTop } = this.props;
-
-    const active = {
-      background: 'rgba(95, 75, 139, 1)',
-    }
-
-    const resting = {
-      background: 'transparent'
-    }
+    const { isBrandAtTop, isMenuOpen, toggleMenu } = this.props;
 
     return (
-      <BurgerWrapperStyle brandTopStyles={ isBrandAtTop === true ? active : resting }>
-        <BurgerContainerStyle>
-          <BurgerLineStyle />
-          <BurgerLineStyle />
-          <BurgerLineStyle />
+      <BurgerWrapperStyle brandTopStyles={ isBrandAtTop }>
+        <BurgerContainerStyle isMenuOpen={ isMenuOpen } onClick={ toggleMenu }>
+          <BurgerLineStyle isMenuOpen={ isMenuOpen } />
+          <BurgerLineStyle isMenuOpen={ isMenuOpen } />
+          <BurgerLineStyle isMenuOpen={ isMenuOpen } />
         </BurgerContainerStyle>
       </BurgerWrapperStyle>
     );
@@ -27,3 +20,8 @@ class Burger extends React.Component {
 }
 
 export default Burger;
+
+Burger.propTypes = {
+  isBrandAtTop: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired
+}

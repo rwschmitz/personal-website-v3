@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import { NavStyle } from './Styles';
 
 class Nav extends React.Component {
   render() {
+    const { isMenuOpen } = this.props;
     return (
-      <NavStyle>
+      <NavStyle isMenuOpen={ isMenuOpen }>
         <StaticQuery
           query={ graphql`
             query {

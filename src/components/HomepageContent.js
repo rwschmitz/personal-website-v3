@@ -10,7 +10,8 @@ import '../css/page.css';
 class HomepageContent extends React.Component {
 
   state = {
-    isBrandAtTop: false
+    isBrandAtTop: false,
+    isMenuOpen: false
   }
 
   componentDidMount() {
@@ -33,18 +34,25 @@ class HomepageContent extends React.Component {
     }
   }
 
+  toggleMenu = () => {
+    const { isMenuOpen } = this.state;
+    this.setState({
+      isMenuOpen: !isMenuOpen
+    });
+  }
+
 
   render() {
 
     this.brandRef = React.createRef();
 
-    const { isBrandAtTop } = this.state;
+    const { isBrandAtTop, isMenuOpen } = this.state;
 
     return (
       <React.Fragment>
         <Brand isBrandAtTop={ isBrandAtTop } brandRef={ this.brandRef } />
-        <Burger isBrandAtTop={ isBrandAtTop } brandRef={ this.brandRef } />
-        <Nav />
+        <Burger toggleMenu={ this.toggleMenu } isBrandAtTop={ isBrandAtTop } isMenuOpen={ isMenuOpen } brandRef={ this.brandRef } />
+        <Nav isBrandAtTop={ isBrandAtTop } isMenuOpen={ isMenuOpen } />
         <StaticQuery
           query={ graphql`
             {

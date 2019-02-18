@@ -112,7 +112,7 @@ padding-bottom: 1rem;
 padding-left: ${props => props.brandTopStyles.paddingLeft};
 padding-right: ${props => props.brandTopStyles.paddingRight};
 padding-top: ${props => props.brandTopStyles.paddingTop};
-position: ${props => props.brandTopStyles.position};
+position: sticky;
 top: ${props => props.brandTopStyles.top};
 transform: ${props => props.brandTopStyles.transform};
 width: 100%;
@@ -120,12 +120,38 @@ z-index: ${props => props.brandTopStyles.zIndex};
 @media (min-width: 1120px) {
   border-bottom-left-radius: ${props => props.brandTopStyles.borderBottomRadii};
   border-bottom-right-radius: ${props => props.brandTopStyles.borderBottomRadii};
+  max-width: ${props => props.brandTopStyles.maxWidth};
+  position: ${props => props.brandTopStyles.position};
 }
 `;
 
 export const NavStyle = styled.div`
-display: none;
-
+  position: fixed;
+  top: 0;
+  transform: ${props => props.isMenuOpen === false ? 'translateY(-100%)' : 'translateY(0)'};
+  transition: transform 300ms ease;
+  width: 100%;
+  z-index: 2;
+  ul {
+    background: rgba(95, 75, 139, 1);
+    list-style-type: none;
+    padding-bottom: 0;
+    padding-left: 1rem;
+    padding-right: 0;
+    margin: 0;
+    padding-top: 0.45rem;
+    li {
+      padding-bottom: ${(30/16)/2}rem;
+      padding-top: ${(30/16)/2}rem;
+      text-align: center;
+      a {
+        transition: color 300ms ease;
+        &:hover {
+          color: rgba(250, 114, 104, 1);
+        }
+      }
+    }
+  }
 @media (min-width: 1120px) {
   align-items: flex-start;
   display: flex;
@@ -134,22 +160,25 @@ display: none;
   padding: 2rem 0;
   position: fixed;
   right: calc(150px + 30px + 13px);
+  transform: initial;
   top: calc(106px - 1rem);
   width: 150px;
   ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    background: none;
+    padding-top: 0;
     li {
       padding-bottom: ${30/16}rem;
+      padding-top: 0;
       position: relative;
+      text-align: left;
+      width: 100%;
       a {
         transition: all 300ms ease;
       }
       &:hover {
         a {
           opacity: 1;
+          color: #fff;
         }
         &:after {
           background-color: #5449d2;
@@ -179,11 +208,11 @@ display: none;
 `;
 
 export const BurgerWrapperStyle = styled.div`
-  background: ${props => props.brandTopStyles.background};
+  background: ${props => props.brandTopStyles === true ? 'rgba(95, 75, 139, 1)' : 'transparent'};
   padding-right: 1rem;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   @media (min-width: 1120px) {
     display: none;
   }
@@ -197,15 +226,18 @@ cursor: pointer;
 display: flex;
 flex-wrap: wrap;
 grid-area: burger;
-height: 20px;
-margin: 1.45rem auto 0 auto;
-max-height: 20px;
+height: 30px;
+margin: 0.45rem auto 0 auto;
+max-height: 30px;
 max-width: 30px;
 padding: 0;
 position: sticky;
 transition: all 500ms ease;
 top: 1.45rem;
 width: 30px;
+&:focus {
+  outline: ${props => props.isMenuOpen === false ? '1px dashed rgba(95, 75, 139, 1)' : '1px dashed rgba(250, 114, 104, 1)'};
+}
 @media (min-width: 1120px) {
   display: none;
 }
@@ -217,9 +249,20 @@ border-radius: 2.5px;
 display: block;
 height: 3px;
 margin-bottom: calc( (20px - (3 * 3px)) / (2) );
+transition: transform 300ms ease;
 width: 100%;
+&:first-child {
+  margin-bottom: ${props => props.isMenuOpen === false ? 'calc( (20px - (3 * 3px)) / (2) )' : '0'};
+  transform: ${props => props.isMenuOpen === false ? '' : 'rotate(45deg) translateY(11px) translateX(5px)'};
+  transform-origin: ${props => props.isMenuOpen === false ? '' : 'right'};
+}
+&:nth-child(2) {
+  display: ${props => props.isMenuOpen === false ? 'block' : 'none'};
+}
 &:last-child {
   margin-bottom: 0;
+  transform: ${props => props.isMenuOpen === false ? '' : 'rotate(-45deg) translateY(9px) translateX(-2px)'};
+  transform-origin: ${props => props.isMenuOpen === false ? '' : 'left'};
 }
 `;
 
