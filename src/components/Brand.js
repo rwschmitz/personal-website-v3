@@ -11,7 +11,6 @@ class Brand extends React.Component {
     const active = {
       background: 'rgba(95, 75, 139, 1)',
       borderBottomRadii: '10px',
-      // left: 'auto',
       left: 0,
       maxWidth: 'none',
       border: '1px solid red',
