@@ -1,10 +1,9 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import { GridContainerStyle } from '../components/Styles';
+import { graphql, Link, StaticQuery } from 'gatsby';
 import Brand from '../components/Brand';
 import Nav from '../components/Nav';
 import Social from '../components/Social';
-import BlogContent from '../components/BlogContent';
+import { GridContainerStyle } from '../components/Styles';
 import '../css/base.css';
 
 class Blog extends React.Component {
@@ -17,19 +16,27 @@ class Blog extends React.Component {
           <StaticQuery
             query={ graphql`
               query {
-                contentfulBlogPost {
-                  blogPostTitle
-                  blogPostCopy {
-                    blogPostCopy
+                allContentfulBlogPost {
+                  edges {
+                    node {
+                      blogPostTitle
+                      contentful_id
+                    }
                   }
                 }
-              }`
-            }
-            render={ data => (
-              <BlogContent
-                blogTitle={ data.contentfulBlogPost.blogPostTitle }
-                blogCopy={ data.contentfulBlogPost.blogPostCopy.blogPostCopy }
-              />
+              }
+            `}
+            render={data => (
+              <ul>
+                {data.allContentfulBlogPost.edges.map(edge =>
+                (
+                  <li key={ edge.node.contentful_id }>
+                    <Link key={ edge.node.contentful_id } to={ `blog/${edge.node.blogPostTitle.replace(/\s+/g, '-').toLowerCase()}`}>
+                      { edge.node.blogPostTitle }
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             )}
           />
           <Social />

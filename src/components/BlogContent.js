@@ -1,16 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Content from './Content';
+import Brand from './Brand';
+import Nav from './Nav';
+import Social from './Social';
+import { BlogHeadline, ContainerStyle, GridContainerStyle, PStyle } from './Styles';
 import '../css/page.css';
 
 class BlogContent extends React.Component {
   render() {
-    const { blogTitle, blogCopy } = this.props;
+    const { pageContext: { copy, title } } = this.props;
     return (
-      <Content
-        title={ blogTitle }
-        copy={ blogCopy }
-      />
+      <GridContainerStyle id="maincontent">
+        <Brand />
+        <Nav />
+        <ContainerStyle>
+          <BlogHeadline>{ title }</BlogHeadline>
+          <PStyle dangerouslySetInnerHTML={{ __html: copy }} />
+        </ContainerStyle>
+        <Social />
+      </GridContainerStyle>
     );
   }
 }
@@ -18,6 +26,5 @@ class BlogContent extends React.Component {
 export default BlogContent;
 
 BlogContent.propTypes = {
-  blogTitle: PropTypes.string.isRequired,
-  blogCopy: PropTypes.string.isRequired
+  pageContext: PropTypes.objectOf(PropTypes.string.isRequired, PropTypes.string.isRequired).isRequired
 }

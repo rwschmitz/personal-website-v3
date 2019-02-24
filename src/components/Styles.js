@@ -87,7 +87,14 @@ font-weight: 300;
 margin: 0;
 padding: 0;
 width: auto;
-`
+`;
+
+export const BlogHeadline = styled(H2Style)`
+font-size: 24px;
+padding-bottom: 2rem;
+padding-left: 1rem;
+text-align: center;
+`;
 
 export const PStyle = styled.div`
 font-size: 18px;
@@ -99,7 +106,7 @@ max-width: 640px;
 width: 100%;
  p {
    margin: 0;
-   padding: 2rem 0;
+   padding-bottom: 2rem;
  }
 `;
 
@@ -173,31 +180,38 @@ export const NavStyle = styled.div`
       text-align: left;
       width: 100%;
       a {
+        display: block;
         transition: all 300ms ease;
-      }
-      &:hover {
-        a {
+        width: 100%;
+          &:after {
+          background-color: transparent;
+          border: 1px solid #fff;
+          border-radius: 50%;
+          content: '';
+          height: 13px;
+          opacity: 0.33;
+          position: absolute;
+          right: -30px;
+          top: 4px;
+          transition: all 300ms ease;
+          width: 13px;
+        }
+        &:hover {
           opacity: 1;
           color: #fff;
+          &:after {
+            background-color: #5449d2;
+            border: 1px solid transparent;
+            opacity: 1;
+          }
         }
+      }
+      a[aria-current="page"] {
         &:after {
           background-color: #5449d2;
           border: 1px solid transparent;
           opacity: 1;
         }
-      }
-      &:after {
-        background-color: transparent;
-        border: 1px solid #fff;
-        border-radius: 50%;
-        content: '';
-        height: 13px;
-        opacity: 0.33;
-        position: absolute;
-        right: -30px;
-        top: 4px;
-        transition: all 300ms ease;
-        width: 13px;
       }
     }
   }

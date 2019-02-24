@@ -24,7 +24,7 @@ class Nav extends React.Component {
             <ul>
               { data.allContentfulNavLink.edges.map(edge => (
                 <li key={ edge.node.navLink }>
-                  <Link key={ edge.node.navLink } activeStyle={{ opacity: 1 }} to={edge.node.navLink.toLowerCase() === `home` ? `/` : `/${edge.node.navLink.toLowerCase()}/`}>{ edge.node.navLink }</Link>
+                  <Link key={ edge.node.navLink } activeStyle={{ opacity: 1 }} to={ edge.node.navLink.toLowerCase() === `home` ? `/` : `/${edge.node.navLink.toLowerCase()}/` }>{ edge.node.navLink }</Link>
                 </li>))
               }
             </ul>
@@ -38,6 +38,10 @@ class Nav extends React.Component {
 
 export default Nav;
 
+Nav.defaultProps = {
+  isMenuOpen: false
+}
+
 Nav.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired
+  isMenuOpen: PropTypes.bool
 }

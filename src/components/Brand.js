@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import { BrandStyle, H1Style, H2Style } from './Styles';
 
 class Brand extends React.Component {
@@ -40,7 +40,9 @@ class Brand extends React.Component {
         }
         render={ data => (
           <BrandStyle ref={ brandRef } brandTopStyles={ isBrandAtTop === true ? active : resting }>
-            <H1Style>{ data.contentfulBrand.brandName }</H1Style>
+            <Link to="/">
+              <H1Style>{ data.contentfulBrand.brandName }</H1Style>
+            </Link>
             <H2Style>{ data.contentfulBrand.brandTitle }</H2Style>
           </BrandStyle>
         )}
