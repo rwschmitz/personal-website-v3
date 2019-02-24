@@ -53,29 +53,7 @@ class HomepageContent extends React.Component {
         <Brand isBrandAtTop={ isBrandAtTop } brandRef={ this.brandRef } />
         <Burger toggleMenu={ this.toggleMenu } isBrandAtTop={ isBrandAtTop } isMenuOpen={ isMenuOpen } brandRef={ this.brandRef } />
         <Nav isBrandAtTop={ isBrandAtTop } isMenuOpen={ isMenuOpen } />
-        <StaticQuery
-          query={ graphql`
-            {
-              allContentfulPageHomepageCopyRichTextNode {
-                edges {
-                  node {
-                    childContentfulRichText {
-                      html
-                    }
-                  }
-                }
-              }
-            }`
-          }
-          render={ data => (
-            data.allContentfulPageHomepageCopyRichTextNode.edges.map(edge => (
-              <Content
-                key={ edge.node.childContentfulRichText.html  }
-                copy={ edge.node.childContentfulRichText.html }
-              />
-            )))
-          }
-        />
+        <p>New year new me</p>
         <Social />
       </React.Fragment>
     );
