@@ -46,6 +46,7 @@ The purpose of this website is to have a place for:
 ### Gatsbyjs
 
 - To run GraphQL queries in non-page components you’ll need to use [Gatsby’s Static Query feature](https://www.gatsbyjs.org/docs/static-query/).
+- To create blog post pages on the fly, use Gatsby's `gatsby-node.js` file with the `createPage` API.
 
 ### Styled Components / Contentful / Netlify Gotchas
 
