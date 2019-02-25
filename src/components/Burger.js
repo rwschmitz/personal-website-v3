@@ -1,27 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { GlobalContext } from '../../GlobalWrapper';
 import { BurgerWrapperStyle, BurgerContainerStyle, BurgerLineStyle } from './Styles';
 
 class Burger extends React.Component {
   render() {
-
-    const { isBrandAtTop, isMenuOpen, toggleMenu } = this.props;
-
     return (
-      <BurgerWrapperStyle brandTopStyles={ isBrandAtTop }>
-        <BurgerContainerStyle isMenuOpen={ isMenuOpen } onClick={ toggleMenu }>
-          <BurgerLineStyle isMenuOpen={ isMenuOpen } />
-          <BurgerLineStyle isMenuOpen={ isMenuOpen } />
-          <BurgerLineStyle isMenuOpen={ isMenuOpen } />
-        </BurgerContainerStyle>
-      </BurgerWrapperStyle>
+      <GlobalContext.Consumer>
+        { (context) => (
+          <BurgerWrapperStyle brandTopStyles={ context.state.isBrandAtTop }>
+            <BurgerContainerStyle isMenuOpen={ context.state.isMenuOpen } onClick={ context.toggleMenu }>
+              <BurgerLineStyle isMenuOpen={ context.state.isMenuOpen } />
+              <BurgerLineStyle isMenuOpen={ context.state.isMenuOpen } />
+              <BurgerLineStyle isMenuOpen={ context.state.isMenuOpen } />
+            </BurgerContainerStyle>
+          </BurgerWrapperStyle>
+        )}
+      </GlobalContext.Consumer>
     );
   }
 }
 
 export default Burger;
-
-Burger.propTypes = {
-  isBrandAtTop: PropTypes.bool.isRequired,
-  toggleMenu: PropTypes.func.isRequired
-}
