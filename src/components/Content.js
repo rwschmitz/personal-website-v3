@@ -1,18 +1,18 @@
 import React from 'react'
-import { GlobalContext } from '../../GlobalWrapper';
+import PropTypes from 'prop-types';
+import { PStyle } from './Styles';
 
 class Content extends React.Component {
   render() {
+    const { copy } = this.props;
     return (
-      <div>
-        <GlobalContext.Consumer>
-          { (context) => (
-            <p>{ context.state.name }</p>
-          )}
-        </GlobalContext.Consumer>
-      </div>
+      <PStyle dangerouslySetInnerHTML={{ __html: copy }} />
     )
   }
 }
 
 export default Content;
+
+Content.propTypes = {
+  copy: PropTypes.string.isRequired
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import { GlobalContext } from '../../GlobalWrapper';
 import { BrandStyle, H1Style, H2Style } from './Styles';
@@ -55,13 +54,3 @@ class Brand extends React.Component {
 }
 
 export default Brand;
-
-Brand.defaultProps = {
-  isBrandAtTop: false,
-  brandRef: undefined
-}
-
-Brand.propTypes = {
-  isBrandAtTop: PropTypes.bool,
-  brandRef: PropTypes.shape()
-}

@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import GlobalWrapper from '../../GlobalWrapper';
 import Brand from '../components/Brand';
+import Burger from '../components/Burger';
 import Nav from '../components/Nav';
 import Social from '../components/Social';
 import { GridContainerStyle } from '../components/Styles';
@@ -14,6 +15,7 @@ class Blog extends React.Component {
         <div>
           <GridContainerStyle>
             <Brand />
+            <Burger />
             <Nav />
             <StaticQuery
               query={ graphql`

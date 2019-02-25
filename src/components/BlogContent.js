@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GlobalWrapper from '../../GlobalWrapper';
 import Brand from './Brand';
+import Burger from './Burger';
 import Nav from './Nav';
 import Social from './Social';
 import { BlogHeadline, ContainerStyle, GridContainerStyle, PStyle } from './Styles';
@@ -14,6 +15,7 @@ class BlogContent extends React.Component {
       <GlobalWrapper>
         <GridContainerStyle id="maincontent">
           <Brand />
+          <Burger />
           <Nav />
           <ContainerStyle>
             <BlogHeadline>{ title }</BlogHeadline>
